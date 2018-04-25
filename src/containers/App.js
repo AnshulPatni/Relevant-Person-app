@@ -4,14 +4,38 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: 'wadaj1', name: 'Max', age: 28 },
-      { id: 'ewfas1', name: 'Manu', age: 27 },
-      { id: 'erger1', name: 'Stephanie', age: 25 }
-    ],
-    showPersons: false
+  constructor(props) {
+    super(props)
+    console.log('[Apps.js] inside constructor');
+    this.state = {
+      persons: [
+        { id: 'wadaj1', name: 'Max', age: 28 },
+        { id: 'ewfas1', name: 'Manu', age: 27 },
+        { id: 'erger1', name: 'Stephanie', age: 25 }
+      ],
+      otherState:'some other value',
+      showPersons: false
+    }
   }
+
+  componentWillMount() {
+    console.log('[Apps.js] inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[Apps.js] inside componentDidMount()');
+  }
+
+
+  // state = {
+  //   persons: [
+  //     { id: 'wadaj1', name: 'Max', age: 28 },
+  //     { id: 'ewfas1', name: 'Manu', age: 27 },
+  //     { id: 'erger1', name: 'Stephanie', age: 25 }
+  //   ],
+  //   otherState:'some other value',
+  //   showPersons: false
+  // }
 
   switchNameHandler = (newName) => {
     //console.log("I just switched the names");
@@ -54,7 +78,8 @@ class App extends Component {
   }
 
   render() {
-
+    console.log('[App.js] inside render()');
+    
     let persons = null;
 
     if (this.state.showPersons) {
